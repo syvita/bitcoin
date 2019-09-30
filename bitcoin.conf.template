@@ -1,0 +1,26 @@
+# ==== #
+# USER #
+# ==== #
+
+rpcuser=user
+rpcpassword=password
+
+# ===== #
+# CHAIN #
+# ===== #
+
+#testnet=1
+#regtest=1
+mainnet=1
+
+# ========= #
+# BITCOIN D #
+# ========= #
+
+server=1
+daemon=1
+#rpcport=8332
+rpcallowip=127.0.0.1
+rpcconnect=127.0.0.1
+rpctimeout=30
+#txindex=1
