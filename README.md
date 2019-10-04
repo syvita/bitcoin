@@ -18,13 +18,13 @@ You can pull the image from the docker hub: `docker pull florentdufour/bitcoin`.
 
 ## Default build
 
-Use:
+Clone the repository and `cd` into it, then:
 
 ```shell
 ~$ docker build -t bitcoind .
 ```
 
-* To build the docker image with Ubunt 18.04 and bitcoin core 0.18.1.
+* Will build the docker image with Ubunt 18.04 and bitcoin core 0.18.1.
 * Expect 25 to 30 min to build.
 
 ## Custom build
@@ -33,7 +33,7 @@ Pieces of the docker image can be built with different versions. Use the `--buil
 
 ### Versions
 
-| Software    | Default version      | Varibale          |
+| Software    | Default version      | --build-arg       |
 |-------------|----------------------|-------------------|
 | Ubuntu      | 18.04                | ubuntuVersion     |
 | Bitcoin     | 0.18.1               | bitcoinVersion    |
