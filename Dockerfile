@@ -35,7 +35,7 @@ RUN ./autogen.sh && ./configure CPPFLAGS="-I${BDB_PREFIX}/include/ -O2" LDFLAGS=
 RUN make && make install
 
 # System config:
-RUN echo "alias log=tail -f /root/.bitcoin/debug.log" >> /root/.bashrc
+RUN echo 'alias "log=tail -f /root/.bitcoin/debug.log"' >> /root/.bashrc
 
 # Cleanup:
 RUN apt-get autoremove -y
