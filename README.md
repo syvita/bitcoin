@@ -2,9 +2,7 @@
 
 > Containerized bitcoin core built from source.
 
-Spin a container out of the image and access bitcoin core capabilities from the command line.
-
-Make the blockchain persistent by mounting an external volume to `/root/.bitcoin`.
+Spin a container out of the image and use bitcoin core from the command line. Once started, the server starts downloading the blockchain. Make it persistent by mounting an external volume to `/root/.bitcoin`.
 
 Usage:
 
@@ -15,6 +13,8 @@ Usage:
 A `bitcoin.conf.template` configuration template file is available in the repo. Name it `bitcoin.conf` on the persistent drive for `bitcoind` to use it.
 
 # Build the image
+
+You can pull the image from the docker hub: `docker pull florentdufour/bitcoin`. Otherwise, you can build it yourself.
 
 ## Default build
 
