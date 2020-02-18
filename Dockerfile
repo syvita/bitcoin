@@ -3,14 +3,13 @@ ARG ubuntuVersion=18.04
 FROM ubuntu:${ubuntuVersion}
 
 LABEL maintainer="florent.dufour@univ-lorraine.fr"
-LABEL description="Containerized bitcoin core built from source"
-LABEL version="0.2"
+LABEL description="Bitcoin full node from docker"
 
 # Available bitcoin versions: https://github.com/bitcoin/bitcoin/releases
-ARG bitcoinVersion=v0.18.1
+ARG bitcoinVersion=v0.19.0.1
 ARG berkeleydbVersion=db-4.8.30.NC
 
-# Update && install tools \ install build dependencies \ install librairies && clean
+# Update \ && install tools \ install build dependencies \ install librairies \ && clean
 RUN apt-get update -y \
   && apt-get install -y locales git wget vim \
   build-essential libtool autotools-dev automake pkg-config bsdmainutils python3 \
@@ -35,7 +34,8 @@ RUN ./autogen.sh && ./configure CPPFLAGS="-I${BDB_PREFIX}/include/ -O2" LDFLAGS=
 RUN make && make install
 
 # System config:
-RUN echo 'alias "log=tail -f /root/.bitcoin/debug.log"' >> /root/.bashrc
+RUN echo "alias 'log=tail -f /root/.bitcoin/debug.log'" >> /root/.bashrc
+RUN echo "alias 'logtest=tail -f /root/.bitcoin/testnet3/debug.log'" >> /root/.bashrc
 
 # Cleanup:
 RUN apt-get autoremove -y
