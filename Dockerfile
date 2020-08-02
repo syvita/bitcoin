@@ -4,7 +4,7 @@ FROM ubuntu:${ubuntuVersion}
 
 LABEL maintainer="florent.dufour@univ-lorraine.fr"
 LABEL description="Bitcoin full node from docker, built from source."
-LABEL version="0.19.1"
+LABEL version="0.20.1"
 
 # Available bitcoin versions: https://github.com/bitcoin/bitcoin/releases
 ARG bitcoinVersion=v0.19.1
@@ -21,7 +21,7 @@ RUN apt-get update -y \
 WORKDIR /tmp
 RUN git clone --verbose -b ${bitcoinVersion} --depth=1 https://github.com/bitcoin/bitcoin.git bitcoin/
 
-# Install Berkley Database:
+# Install Berkeley Database:
 RUN wget http://download.oracle.com/berkeley-db/${berkeleydbVersion}.tar.gz && tar -xvf db-4.8.30.NC.tar.gz
 WORKDIR /tmp/db-4.8.30.NC/build_unix
 RUN mkdir -p build

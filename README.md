@@ -1,6 +1,6 @@
 # Introduction
 
-> Bitcoin full node from docker, built from source.
+> Bitcoin full node from docker, built from source, for amd and arm.
 
 Use bitcoin core from the command line inside the container. Once started, the server automatically downloads the blockchain. Make it persistent by mounting an external volume to `/root/.bitcoin`.
 
@@ -9,8 +9,8 @@ A `bitcoin.conf.template` configuration template file is available in the repo. 
 Example:
 
 ```shell
-~$ docker pull florentdufour/bitcoin:0.19.1
-~$ docker run -it --rm -v e:/bitcoin:/root/.bitcoin florentdufour/bitcoin:0.19.1
+~$ docker pull florentdufour/bitcoin:0.20.1
+~$ docker run -it --rm -v /mnt/bitcoin:/root/.bitcoin florentdufour/bitcoin:0.20.1
 ```
 
 # Build the image
@@ -22,10 +22,10 @@ You may prefer to build the image yourself.
 ```shell
 ~$ git clone https://github.com/f-dufour/bitcoin-core-docker.git
 ~$ cd bitcoin-core-docker/
-~$ docker build -t bitcoin:0.19.1 .
+~$ docker build -t bitcoin:0.20.1 .
 ```
 
-* Will build the docker image with Ubuntu 18.04 and bitcoin core 0.19.1 by default.
+* Will build the docker image with Ubuntu 18.04 and bitcoin core 0.20.1 by default.
 * Expect 20 to 40 min to build depending on your configuration.
 
 ## Custom build
@@ -37,40 +37,38 @@ Use the `--build-arg` flag to tweak your build.
 | Software    | Default version      | --build-arg       |
 |-------------|----------------------|-------------------|
 | Ubuntu      | 18.04                | ubuntuVersion     |
-| Bitcoin     | v0.19.1              | bitcoinVersion    |
+| Bitcoin     | v0.20.1              | bitcoinVersion    |
 | Berkeley DB | db-4.8.30.NC         | berkeleydbVersion |
 
 ### Example of custom build
 
-Build:
+**Build**:
 
 ```shell
 ~$ docker build --build-arg bitcoinVersion=v0.13.1 --build-arg ubuntuVersion=16.04 -t yourname/bitcoin:0.13.1 .
 ```
+
+**Launch**:
+
+```shell
+~$ docker run -it --rm -v /mnt/bitcoin:/root/.bitcoin yourname/bitcoin:0.13.1
+```
+
 # Use the image
 
 - Bitcoin core is launched in daemon mode as the container is started
-- It can run on the testnet or mainnet depending on you `bitcoin.conf`.
-- `bitcoin-cli` and `bitcoind` are available.
-- Before stopping the container, use `bitcoin-cli stop` to write in memory blocks to the hard drive. Only once no bitcoin process is running should you stop the container.
+- It can run on the testnet or mainnet depending on you `bitcoin.conf` (regtest also possible)
 
-Launch:
+## Commands
 
-```shell
-~$ docker run -it --rm -v e:/bitcoin:/root/.bitcoin yourname/bitcoin:0.13.1
-```
+### bitcoin-cli
 
-# Commands
+- All `bitcoind` and `bitcoin-cli` commands are available on start.
+- Before stopping the container, use `bitcoin-cli stop` to write in memory blocks to the hard drive. Only once no bitcoin process is running should you stop the container. Use `top` to make sure that `bitcoind` is no longer running.
 
-## bitcoin-cli
+### Helper methods
 
-All `bitcoind` and `bitcoin-cli` commands are available. `bitcoind` is launched on start in daemon mode.
-
-Before stopping the image, use `bitcoin-cli stop` to write in memory date to the disk. Use `top` to make sure that `bitcoind` is no longer running.
-
-## Helper methods
-
-You find helper commands in `/root/.bashrc`:
+You will find helper commands in `/root/.bashrc`:
 
 - `log`: Will tail -f the log of bitcoind for the mainnet
 - `logtest`: Will tail -f the log of bitcoind for the testnet

@@ -1,0 +1,7 @@
+version: "3"
+services:
+    full_node:
+        image: florentdufour/bitcoin
+        volumes:
+            - /media/dufour18/ELEMENTS:/root/.bitcoin
+            - /home/dufour18:/mnt/data
