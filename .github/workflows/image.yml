@@ -18,4 +18,4 @@ jobs:
         with:
           version: latest
       - name: build the image
-        run: docker buildx build --tag your-username/multiarch-example:latest --platform linux/amd64,linux/arm/v7,linux/arm64 .
+        run: docker buildx build --tag florentdufour/bitcoin:latest --platform linux/amd64,linux/arm/v7,linux/arm64 .
