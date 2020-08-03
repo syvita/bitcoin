@@ -1,7 +1,13 @@
-version: "3"
+version: '3'
+
 services:
-    full_node:
-        image: florentdufour/bitcoin
+    core:
+        build: .
+        container_name: bitcoin
+        hostname: bitcoin
+        ports:
+        - "5000:5000"
         volumes:
-            - /media/dufour18/ELEMENTS:/root/.bitcoin
-            - /home/dufour18:/mnt/data
+        - /mnt/bitcoin:/root/.bitcoin
+        stdin_open: true
+        tty: true
