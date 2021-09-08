@@ -1,10 +1,7 @@
 name: Docker Image CI multiplatform
 
 on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+  release: v*
 
 jobs:
   build:
@@ -20,4 +17,4 @@ jobs:
       - name: login to docker hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin    
       - name: build the image
-        run: docker buildx build --tag florentdufour/bitcoin:latest --platform linux/amd64,linux/arm/v7,linux/arm64 .
+        run: docker buildx build --tag ghcr.io/syvita/bitcoin:latest --platform linux/amd64,linux/arm/v7,linux/arm64 .
