@@ -26,7 +26,7 @@ RUN wget http://download.oracle.com/berkeley-db/${berkeleydbVersion}.tar.gz && t
 WORKDIR /tmp/db-4.8.30.NC/build_unix
 RUN mkdir -p build
 RUN BDB_PREFIX=$(pwd)/build
-RUN ../dist/configure --disable-shared --enable-cxx --with-pic --prefix=$BDB_PREFIX
+RUN ../dist/configure --disable-shared --enable-cxx --with-pic --prefix=$BDB_PREFIX --build=aarch64-unknown-linux-gnu
 RUN make install
 
 # Install bitcoin:
