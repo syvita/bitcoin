@@ -1,4 +1,4 @@
-ARG ubuntuVersion=18.04
+ARG ubuntuVersion=20.04
 
 FROM ubuntu:${ubuntuVersion}
 
