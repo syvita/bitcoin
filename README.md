@@ -38,13 +38,13 @@ Use the `--build-arg` flag to tweak your build.
 **Build**:
 
 ```shell
-~$ docker build --build-arg bitcoinVersion=v0.13.1 --build-arg ubuntuVersion=16.04 -t yourname/bitcoin:0.13.1 .
+~$ docker build --build-arg bitcoinVersion=v0.13.1 --build-arg ubuntuVersion=16.04 -t bitcoin:0.13.1 .
 ```
 
 **Launch**:
 
 ```shell
-~$ docker run -it --rm -v /mnt/bitcoin:/root/.bitcoin yourname/bitcoin:0.13.1
+~$ docker run -it --rm -v /mnt/bitcoin:/root/.bitcoin bitcoin:0.13.1
 ```
 
 # Use the image
