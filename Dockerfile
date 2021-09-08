@@ -1,4 +1,4 @@
-ARG ubuntuVersion=20.04
+ARG ubuntuVersion=18.04
 
 FROM ubuntu:${ubuntuVersion}
 
@@ -11,9 +11,7 @@ ARG bitcoinVersion=v0.21.1
 ARG berkeleydbVersion=db-4.8.30.NC
 
 # Update \ && install tools \ install build dependencies \ install librairies \ && clean
-RUN DEBIAN_FRONTEND=noninteractive \
-  TZ=Asia/Singapore \
-  apt-get update -y \
+RUN apt-get update -y \
   && apt-get install -y locales git wget vim \
   build-essential libtool autotools-dev automake pkg-config bsdmainutils python3 \
   libssl-dev libevent-dev libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-test-dev libboost-thread-dev \
