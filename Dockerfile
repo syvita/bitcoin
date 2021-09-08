@@ -1,4 +1,5 @@
 ARG ubuntuVersion=20.04
+ARG DEBIAN_FRONTEND=noninteractive
 
 FROM ubuntu:${ubuntuVersion}
 
