@@ -15,10 +15,10 @@ You may prefer to build the image yourself.
 ```shell
 git clone https://github.com/syvita/bitcoin-core-docker.git
 cd bitcoin-core-docker/
-docker build -t bitcoin:0.20.1 .
+docker build -t bitcoin:0.21.1 .
 ```
 
-* Will build the docker image with Ubuntu 18.04 and bitcoin core 0.20.1 by default.
+* Will build the docker image with Ubuntu 20.04 and bitcoin core 0.21.1 by default.
 * Expect 20 to 40 min to build depending on your configuration.
 
 ## Custom build
@@ -29,8 +29,8 @@ Use the `--build-arg` flag to tweak your build.
 
 | Software    | Default version      | --build-arg       |
 |-------------|----------------------|-------------------|
-| Ubuntu      | 18.04                | ubuntuVersion     |
-| Bitcoin     | v0.20.1              | bitcoinVersion    |
+| Ubuntu      | 20.04                | ubuntuVersion     |
+| Bitcoin     | v0.21.1              | bitcoinVersion    |
 | Berkeley DB | db-4.8.30.NC         | berkeleydbVersion |
 
 ### Example of custom build
