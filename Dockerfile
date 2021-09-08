@@ -2,12 +2,12 @@ ARG ubuntuVersion=18.04
 
 FROM ubuntu:${ubuntuVersion}
 
-LABEL maintainer="florent.dufour@univ-lorraine.fr"
-LABEL description="Bitcoin full node from docker, built from source, for amd and arm."
-LABEL version="0.20.1"
+LABEL maintainer="Syvita Guild"
+LABEL description="Bitcoin full node for Docker, built from source, for amd and arm."
+LABEL version="0.21.1"
 
 # Available bitcoin versions: https://github.com/bitcoin/bitcoin/releases
-ARG bitcoinVersion=v0.20.1
+ARG bitcoinVersion=v0.21.1
 ARG berkeleydbVersion=db-4.8.30.NC
 
 # Update \ && install tools \ install build dependencies \ install librairies \ && clean
