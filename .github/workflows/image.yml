@@ -1,7 +1,9 @@
 name: Docker Image CI multiplatform
 
-on:
-  release: v*
+on:  
+  push:
+    tags:
+      - '*'
 
 jobs:
   build:
