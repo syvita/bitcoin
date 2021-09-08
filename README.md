@@ -6,13 +6,6 @@ Use bitcoin core from the command line inside the container. Once started, the s
 
 A `bitcoin.conf.template` configuration template file is available in the repo. Name it `bitcoin.conf` on the persistent drive for `bitcoind` to use it.
 
-Example:
-
-```shell
-~$ docker pull florentdufour/bitcoin:0.20.1
-~$ docker run -it --rm -v /mnt/bitcoin:/root/.bitcoin florentdufour/bitcoin:0.20.1
-```
-
 # Build the image
 
 You may prefer to build the image yourself.
@@ -20,9 +13,9 @@ You may prefer to build the image yourself.
 ## Default build
 
 ```shell
-~$ git clone https://github.com/f-dufour/bitcoin-core-docker.git
-~$ cd bitcoin-core-docker/
-~$ docker build -t bitcoin:0.20.1 .
+git clone https://github.com/syvita/bitcoin-core-docker.git
+cd bitcoin-core-docker/
+docker build -t bitcoin:0.20.1 .
 ```
 
 * Will build the docker image with Ubuntu 18.04 and bitcoin core 0.20.1 by default.
