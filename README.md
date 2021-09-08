@@ -13,7 +13,7 @@ You may prefer to build the image yourself.
 ## Default build
 
 ```shell
-git clone https://github.com/syvita/bitcoin-core-docker.git
+git clone https://github.com/syvita/bitcoin
 cd bitcoin-core-docker/
 docker build -t bitcoin:0.21.1 .
 ```
