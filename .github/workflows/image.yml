@@ -19,6 +19,6 @@ jobs:
       - name: login to ghcr
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u syvita --password-stdin    
       - name: build the image
-        run: docker buildx build --tag ghcr.io/syvita/bitcoin:latest --platform linux/amd64,linux/arm/v7,linux/arm64 .
+        run: docker buildx build --tag ghcr.io/syvita/bitcoin:latest --platform linux/arm64 .
       - name: push to ghcr
         run: docker push ghcr.io/syvita/bitcoin:latest
